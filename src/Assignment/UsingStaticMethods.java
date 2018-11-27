@@ -15,21 +15,21 @@
  // import java libraries here as needed
  
  import javax.swing.*;
- import java.text.DecimalFormat;
  import java.io.*; 					// import file io libraries
  
 
 public class UsingStaticMethods {  // begin class
     
-    public static void main(String[] args) throws IOException{  // begin main
+public static void main(String[] args) throws IOException{  // begin main
     
     // ********* declaration of constants **********
     
     // ********** declaration of variables **********
     
-    	String strin;				// string data input from keyboard
-    	String strout = "";				// processed info string to be output
-    	String bannerForWindow = "";			// string to print banner to message dialogs
+    	String strin = "";				// string data input from keyboard
+    	String strout = "";			// processed info string to be output
+    	String bannerForWindow = "";	       // string to print banner to message dialogs
+        String value = "";
     	
     	String prompt;				// prompt for use in input dialogs
     	
@@ -38,6 +38,8 @@ public class UsingStaticMethods {  // begin class
     	
         int startYear = 0;
         int distinctYear = 0;
+        
+        int duplicates = 0;
         
         
     // create instances of objects for i/o and formatting
@@ -56,24 +58,27 @@ public class UsingStaticMethods {  // begin class
         
 
     // ************************ get input **********************
-
+       
     	prompt = "Enter a Year\n\n";
-    	
-    	//strin = JOptionPane.showInputDialog(bannerForWindow + prompt);
         
         
-        startYear = getInteger(bannerForWindow, prompt);
-        //operand2 = getInteger(bannerForWindow, prompt);
+        strin = getYear(bannerForWindow, prompt);
+        value = (Integer.parseInt(strin) + 1) + "";
         
        
     // ************************ processing ***************************
     
-        
+    
+    while (getduplicates (value)) {
+        value = (Integer.parseInt(value)) + 1 + "";
+        }// end while strin no null
+    
+    //System.out.println(value);
     
     // ************************ print output ****************************
     
-    System.out.printf("%15s %20s" , "Start year:" , "distinct year:" + "\n");
-    System.out.printf("%15s %21s",(int) startYear,(int) distinctYear + "\n\n");
+    System.out.printf("%15s %20s" , "Start Year:" , "Distinct Year:" + "\n");
+    System.out.printf("%15s %21s", strin, value + "\n\n");
     
     JOptionPane.showMessageDialog(null, bannerForWindow + strout);
     
@@ -91,32 +96,33 @@ public class UsingStaticMethods {  // begin class
 
 //************************ Static Methods************************
     
+    
     /*********************************************************
-    *   Purpose:get add 2 integer values passed through the arg param interface
-    *   Interface: operand1 ---> op1 firt integer operand
-    *              operand2 ---> op2 second integer operand
-    *   Returns: sum of op1 + op2 : int
+    *   Purpose: to check if the number has a duplicate
+    *   Interface: bannerForWindow ---> ban output banner
+    *              prompt ---> prmt input prompt
+    *   Returns: an integer value 
     *  ***************************************************************/
-    public static int add(int op1, int op2){
-        int sum = 0;
-        
-        sum = op1 + op2;
-        
-        return sum;        
-    } // end add
-    
-    
-    /*********************************************************
+
+    public static boolean getduplicates(String value){
+        for(int i = 0 ; i < value.length(); i++)
+          for(int j = i + 1; j < value.length(); j++)
+              if (value.charAt (i) == value.charAt(j))
+            
+              return true;
+        return false;
+              
+}
+        /*********************************************************
     *   Purpose:get an integer from the keyboard buffer
     *   Interface: bannerForWindow ---> ban output banner
     *              prompt ---> prmt input prompt
     *   Returns: an integer value
     *  ***************************************************************/
-    
-    public static int getInteger(String ban, String prmt){
-        int year = 0;
+    public static String getYear(String ban, String prmt){
+        String year;
         
-        year = Integer.parseInt(JOptionPane.showInputDialog(ban + prmt));
+        year = (JOptionPane.showInputDialog(ban + prmt));
         
         return year;    
     }//end get integer
@@ -133,7 +139,7 @@ public class UsingStaticMethods {  // begin class
         bannerOut = "*******************************************\n";
     	bannerOut += "Name:Zenash.W\n";
     	bannerOut += "Class:CS20S\n";
-    	bannerOut += "Assignment:Method Intro\n";
+    	bannerOut += "Assignment:Using Static Methods\n";
     	bannerOut += "*******************************************\n\n";
         
         return bannerOut;
@@ -149,7 +155,7 @@ public class UsingStaticMethods {  // begin class
         System.out.println("*******************************************");
     	System.out.println("Name:Zenash.W");
     	System.out.println("Class:CS20S");
-    	System.out.println("Assignment:	Method Intro");
+    	System.out.println("Assignment:Using Static Methods");
     	System.out.println("*******************************************");
     } // end print banner
  
@@ -164,8 +170,10 @@ public class UsingStaticMethods {  // begin class
         fout.println("*******************************************");
     	fout.println("Name:Zenash.W");
     	fout.println("Class:CS20S");
-    	fout.println("Assignment:Method Intro");
+    	fout.println("Assignment: Using Static Methods");
     	fout.println("*******************************************");
     }// end banner out
-    
+     static NumberFormatException forInputString(String s) {
+        return new NumberFormatException("For input string: \"" + s + "\"");
+    }
 }  // end class
