@@ -50,7 +50,8 @@ public class Question1to5 {  // begin class
         String[] tokens;        // string array for gathering input
         
         int actualLength = 0;       // actual length of array
-        int[] list = new int[5];    // pointer of array
+        int[] list = new int[100];    // pointer of array
+        int index = 0;                // the number shown when entered by the user
         
     // ***** create objects *******
     
@@ -80,7 +81,7 @@ public class Question1to5 {  // begin class
     // ************************ print output ****************************
 //        System.out.printf("%15s %20s" , "Original:" , "Reverse:" + "\n");
 //        System.out.printf("%15s", strin + "\n\n");
-
+       
         System.out.println("Original:");
         printList(actualLength, list) ;
         System.out.println("");
@@ -90,10 +91,13 @@ public class Question1to5 {  // begin class
         printReverse(actualLength, list);
         System.out.println("");
         
-    // ******** closing message *********
+        System.out.println("The Number you Chose:");
+        //index = Integer.parseInt(JOptionPane.showInputDialog("Enter the Position You Want From the List of Numbers You Have Chosen"));
+        printIndex(list, index);   
+        System.out.println("");
         
-    
-    
+        // ******** closing message *********
+        
         System.out.println("end of processing.");
         fout.println("end of proecessing");
         
@@ -151,7 +155,7 @@ public class Question1to5 {  // begin class
         String[] tokens = strin.split(delim);
         
         len = tokens.length;        // get number of vlaues to be added to array
-        
+        System.out.println(len);
         for(int i = 0; i < len; i++){
             list[i] = Integer.parseInt(tokens[i]);
         } // end for int i = 0
@@ -174,6 +178,26 @@ public class Question1to5 {  // begin class
         return len;
     } // end print reverse
     
+    /***********************************************************
+    *   Purpose: print the number the user has chosen
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    no return
+    * **************************************************************/
+    
+    public static int printIndex(int[] list, int index){
+       int i = index;
+            
+  index = Integer.parseInt(JOptionPane.showInputDialog("Enter the Position You Want From the List of Numbers You Have Chosen"));
+            while (index != -1){
+                
+                System.out.print(list[index]);
+            index = Integer.parseInt(JOptionPane.showInputDialog("Enter another Position You Want From the List of Numbers You Have Chosen; enter -1 to quit"));
+        }//end while index != -1
+        
+        return index;
+     
+    } // end print index
     
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
