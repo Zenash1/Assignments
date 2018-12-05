@@ -52,6 +52,7 @@ public class Question1to5 {  // begin class
         int actualLength = 0;       // actual length of array
         int[] list = new int[100];    // pointer of array
         int index = 0;                // the number shown when entered by the user
+        int newNumber = 0;
         
     // ***** create objects *******
     
@@ -94,6 +95,11 @@ public class Question1to5 {  // begin class
         System.out.println("The Number you Chose:");
         //index = Integer.parseInt(JOptionPane.showInputDialog("Enter the Position You Want From the List of Numbers You Have Chosen"));
         printIndex(list, index);   
+        System.out.println("");
+        
+        System.out.println("Modified List:");
+        changeIndex(list, newNumber);   
+        printList(actualLength, list) ;
         System.out.println("");
         
         // ******** closing message *********
@@ -198,6 +204,33 @@ public class Question1to5 {  // begin class
         return index;
      
     } // end print index
+    
+    
+    /***********************************************************
+    *   Purpose: print the number the user has chosen
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    no return
+    * **************************************************************/
+    
+    public static void changeIndex(int[] list, int newNumber){
+       //int i = index;
+       int index = 0;
+            
+  index = Integer.parseInt(JOptionPane.showInputDialog("Enter the Position of the Number You Want to Change, -1 to quit"));
+  
+            while (index != -1){
+                    newNumber = Integer.parseInt(JOptionPane.showInputDialog("Enter Your new Number")); 
+                    list[index] = newNumber;
+                    
+                    //System.out.println(newNumber);
+                index = Integer.parseInt(JOptionPane.showInputDialog("Do You Want to Change a New Number, -1 to quit"));
+                
+        }//end while index != -1
+        
+     
+    } // end print index
+    
     
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
