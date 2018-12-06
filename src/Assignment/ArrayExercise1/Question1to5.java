@@ -53,7 +53,8 @@ public class Question1to5 {  // begin class
         int[] list = new int[100];    // pointer of array
         int index = 0;                // the number shown when entered by the user
         int newNumber = 0;
-        
+        int small = 0;
+        int large = 0;
     // ***** create objects *******
     
         //ConsoleReader console = new ConsoleReader(System.in);
@@ -73,11 +74,13 @@ public class Question1to5 {  // begin class
 
         actualLength = Integer.parseInt(JOptionPane.showInputDialog("Enter the amount of numbers you want"));
         loadList(list, actualLength);
+        
         //System.out.println(actualLength);
+        
     // ************************ processing ***************************
         
-        
-
+         
+           // System.out.println(small);
 
     // ************************ print output ****************************
 //        System.out.printf("%15s %20s" , "Original:" , "Reverse:" + "\n");
@@ -101,6 +104,16 @@ public class Question1to5 {  // begin class
         changeIndex(list, newNumber);   
         printList(actualLength, list) ;
         System.out.println("");
+        
+        System.out.println("Smallest Number: ");
+        small = smallestNumber(actualLength, list);
+        System.out.println(list[small]);
+        
+        System.out.println("Largest Number:");
+        large = largestNumber(actualLength, list);
+        System.out.println(list[large]);
+        
+       
         
         // ******** closing message *********
         
@@ -220,8 +233,8 @@ public class Question1to5 {  // begin class
   index = Integer.parseInt(JOptionPane.showInputDialog("Enter the Position of the Number You Want to Change, -1 to quit"));
   
             while (index != -1){
-                    newNumber = Integer.parseInt(JOptionPane.showInputDialog("Enter Your new Number")); 
-                    list[index] = newNumber;
+               newNumber = Integer.parseInt(JOptionPane.showInputDialog("Enter Your new Number")); 
+               list[index] = newNumber;
                     
                     //System.out.println(newNumber);
                 index = Integer.parseInt(JOptionPane.showInputDialog("Do You Want to Change a New Number, -1 to quit"));
@@ -230,6 +243,53 @@ public class Question1to5 {  // begin class
         
      
     } // end print index
+    
+    /***********************************************************
+    *   Purpose:    find minimum value in an array
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    minimum value index
+    * **************************************************************/
+    public static int smallestNumber(int len, int[] list){
+        int minimumValue = list[0];
+        int minimumIndex = 0;
+        
+        for(int i = 0; i < len; i++){
+            if(list[i] < list[minimumIndex]){
+                minimumValue = list[i];
+                minimumIndex = i;
+            } // end if list[i] < min value
+        } // end for int i = 0
+        
+        return minimumIndex;
+    } // end findMinimumValue
+    
+    
+    
+    /***********************************************************
+    *   Purpose:    find minimum value in an array
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    minimum value index
+    * **************************************************************/
+    public static int largestNumber(int len, int[] list){
+        int maximumValue = list[0];
+        int maximumIndex = 0;
+      
+        for(int i = 0; i < len; i++){
+            if(list[i] > list[maximumIndex]){
+                maximumValue = list[i];
+                maximumIndex = i;
+                
+               
+            } // end if list[i] < min value
+             
+        } // end for int i = 0
+       
+                 
+        return maximumIndex;
+    } // end findMinimumValue
+
     
     
  /***********************************************************
