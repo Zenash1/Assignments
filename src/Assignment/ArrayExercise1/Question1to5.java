@@ -220,7 +220,7 @@ public class Question1to5 {  // begin class
     
     
     /***********************************************************
-    *   Purpose: print the number the user has chosen
+    *   Purpose: for the user to be able to change their list
     *   Interface:  int actualLength --> len: actual length of list
     *               list[] --> pointer to base address of array
     *   Returns:    no return
@@ -245,10 +245,10 @@ public class Question1to5 {  // begin class
     } // end print index
     
     /***********************************************************
-    *   Purpose:    find minimum value in an array
+    *   Purpose:    it will find the smallest number in the list of numbers chosen
     *   Interface:  int actualLength --> len: actual length of list
     *               list[] --> pointer to base address of array
-    *   Returns:    minimum value index
+    *   Returns:    minimum index
     * **************************************************************/
     public static int smallestNumber(int len, int[] list){
         int minimumValue = list[0];
@@ -267,7 +267,7 @@ public class Question1to5 {  // begin class
     
     
     /***********************************************************
-    *   Purpose:    find minimum value in an array
+    *   Purpose:    it will find the largest number in the list of numbers chosen
     *   Interface:  int actualLength --> len: actual length of list
     *               list[] --> pointer to base address of array
     *   Returns:    minimum value index
@@ -285,13 +285,10 @@ public class Question1to5 {  // begin class
             } // end if list[i] < min value
              
         } // end for int i = 0
-       
-                 
+           
         return maximumIndex;
     } // end findMinimumValue
 
-    
-    
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
     *           print the banner to a message dialog or the console
