@@ -89,7 +89,6 @@ public class Question6 {  // begin class
     *   Returns:    int len --> is the actual length of the array
     * **************************************************************/
     public static void Fibonacci(int len){
-        
         int n1=0,n2=1,n3,i,count=20;  
         System.out.print(n1+" "+n2);//printing 0 and 1  
   
@@ -100,19 +99,20 @@ public class Question6 {  // begin class
             n1=n2;  
             n2=n3;             
         }//end for n1 =0,n2=1,n3
-        
- }//end printing fibonacci  
-        
+       
+  
+    }//end printing fibonacci
     /***********************************************************
     *   Purpose: print the fibonacci sequence
     *   Interface:  int[] list -->  is the pointer to the array base address
     *               String delim --> delimiter characters
     *   Returns:    int len --> is the actual length of the array
     * **************************************************************/
-     public static void printFibonacci(int[] list, int number){
+     public static void printFibonacci(int[] list, int number, int len){
       
     } // end print fibonacci
-   
+     
+     
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
     *           print the banner to a message dialog or the console
